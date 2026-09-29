@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-void text-ink font-sans antialiased overflow-x-hidden;
+}
+
+::selection {
+  background: rgba(34, 211, 238, 0.25);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #04070d;
+}
+::-webkit-scrollbar-thumb {
+  background: #15243c;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1e3352;
+}
+
+@layer components {
+  .mono-label {
+    @apply font-mono text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-dim;
+  }
+  .panel {
+    @apply bg-panel/70 border border-line rounded-xl backdrop-blur-sm;
+  }
+  .panel-flat {
+    @apply bg-deep/60 border border-line rounded-lg;
+  }
+  .section-pad {
+    @apply px-5 md:px-10 lg:px-16;
+  }
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-void font-semibold text-sm tracking-wide hover:bg-accent-soft transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-soft;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-edge text-mist font-medium text-sm tracking-wide hover:border-accent hover:text-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent;
+  }
+  .chip {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-line bg-deep/80 font-mono text-[10px] tracking-[0.14em] uppercase text-mist;
+  }
+  .sim-badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded font-mono text-[9px] tracking-[0.18em] uppercase bg-amberx/10 text-amberx border border-amberx/30;
+  }
+  .live-badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded font-mono text-[9px] tracking-[0.18em] uppercase bg-emeraldx/10 text-emeraldx border border-emeraldx/40;
+  }
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.035) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.hero-vignette {
+  background:
+    radial-gradient(ellipse 90% 65% at 50% 38%, rgba(14, 116, 144, 0.12), transparent 65%),
+    linear-gradient(to bottom, rgba(4, 7, 13, 0) 55%, #04070d 96%);
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 9999px;
+  background: #15243c;
+  outline: none;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #22d3ee;
+  border: 2px solid #04070d;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.6);
+  cursor: pointer;
+}
+input[type='range']::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: #22d3ee;
+  border: 2px solid #04070d;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.6);
+  cursor: pointer;
+}
+input[type='range']:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid #67e8f9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
